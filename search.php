@@ -1,17 +1,17 @@
 <?php include'inc/header.php';?>
-<?php include'inc/slider.php';?>
+
 <?php
-	if(!isset($_GET['categroy'])||$_GET['categroy']==NULL){
+	if(!isset($_GET['search'])||$_GET['search']==NULL){ //here search is name field of header from in header.php
 		header("Location:404.php");
 	}else{
-		$id=$_GET['categroy'];
+		$search=$_GET['search'];
 		}
 	?>
 <div class="contentsection contemplete clear">
   <div class="maincontent clear">
 
   <?php
-     $query ="select * from tbl_post where cat=$id"; //here cat is from database.the database row of tbl_post
+     $query ="SELECT * FROM tbl_post WHERE title LIKE '%$search%' OR body LIKE '%$search%'" ;
      $post= $db->select($query);
      if($post){
        while($result = $post->fetch_assoc()){
@@ -26,7 +26,9 @@
         <a href="post.php?id=<?php echo $result['id']?>">Read More</a>
       </div>
     </div>
-    <?php } } else { header("Location:404.php");}?>
+    <?php } } else { ?>
+        <p>Your serch query not found</p>
+        <?php } ?>
 
   </div>
   <?php include'inc/sidebar.php'?>
