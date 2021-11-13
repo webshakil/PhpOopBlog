@@ -1,13 +1,9 @@
-<?php include 'config/config.php'?>
-<?php include 'lib/Database.php'?>
+
 <?php include'inc/header.php';?>
-<?php include'helpers/Format.php';?>
+
 <?php include'inc/slider.php';?>
 
-<?php
-  $db=new Database();
-  $fm =new Format();
-?>
+
 <div class="contentsection contemplete clear">
   <div class="maincontent clear">
     <!--Pagination-->
@@ -49,6 +45,7 @@ $total_rows = mysqli_num_rows($result);
 $total_pages = ceil($total_rows / $per_page);
 echo  "<span class='pagination'><a href='index.php?page=1'>".'First Page'."</a>"?>
 <?php
+             
 for($i=1; $i<=$total_pages; $i++){
     echo "<a href='index.php?page=".$i."'>".$i."</a>";
 }
@@ -60,3 +57,9 @@ for($i=1; $i<=$total_pages; $i++){
   <?php include'inc/footer.php'?>
 
 </div>
+
+<?php
+ echo "<pre>";
+ print_r($_SERVER);
+ echo "</pre>";
+?>
