@@ -35,6 +35,7 @@
 						
 							?>
 					<a href="post.php?id=<?php echo $rresult['id'];?>">
+					<p><?php echo $rresult['title'];?></p>
 					<img src="admin/upload/<?php echo $rresult['image'];?>" alt="post image"/></a>
 					<?php } } else {echo "No related posts";}?>
 				</div>
