@@ -26,6 +26,7 @@
 				$username = mysqli_real_escape_string($db->link, $username);
 				$password = mysqli_real_escape_string($db->link, $password);
 				$query = "SELECT * FROM tbl_user WHERE username='$username' AND password ='$password'";
+				//here username and password are from database and $username and $password are from form filed
 				$result = $db->select($query);
 				if($result != false){
 					$value = mysqli_fetch_array($result);

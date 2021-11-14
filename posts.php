@@ -26,7 +26,9 @@
         <a href="post.php?id=<?php echo $result['id']?>">Read More</a>
       </div>
     </div>
-    <?php } } else { header("Location:404.php");}?>
+    <?php } } else { ?>
+        <h3>No posts Available in this Categroy</h3>
+      <?php } ?>
 
   </div>
   <?php include'inc/sidebar.php'?>
